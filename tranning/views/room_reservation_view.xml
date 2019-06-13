@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<record id="view_room_reservation_form" model="ir.ui.view">
+            <field name="name">room.reservation.form</field>
+            <field name="model">room.reservation</field>
+            <field name="arch" type="xml">
+                <form string="Room Reservation">
+                	<sheet>
+                		<group string="Customer Information">
+                			<group>
+                				<field name="booking_no"/>
+                				<field name="name" placeholder="Full Name" required="True"/>
+                                <label for="street" string="Address"/>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="country_id" placeholder="Country" class="o_address_country"
+                                           required="True"
+                                           options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
+                                    <field name="state_id" class="o_address_state" placeholder="State" options="{&quot;no_open&quot;: True}"/>
+                                    <field name="city" placeholder="City" class="o_address_city"/>
+                                </div>
+                                <field name="email"/>
+                                <field name="contact" widget='phone'/>
+                			</group>
+                            <group>
+                                <field name='num_child'/>
+                                <field name='num_adults'/>
+                                <field name='num_of_days'/>
+                                <field name='check_in'/>
+                                <field name='check_out'/>
+                                <field name='is_mail'/>
+                                <field name='total_person'/>
+                            </group>
+                		</group>
+                        <notebook>
+                            <page string="Rooms &amp; Services" autofocus="autofocus">
+                                <group string="Room Lines">
+                                    <field name='rooms_id' mode='tree' nolabel='1'>
+                                        <tree editable='Top'>
+                                            <field name='room_name' options="{'no_create': True, 'no_create_edit':True}"/>
+                                            <field name='room_capacity'/>
+                                            <field name='room_status'/>
+                                            <field name='room_price' widget="monetary"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <!-- <group> -->
+                                <group string="Services Lines">
+                                    <field name='services_ids' mode='tree' nolabel='1'>
+                                        <tree editable='Top'>
+                                            <field name='product' options="{'no_create': True,'no_create_edit':True}"/>
+                                            <field name='services_price' widget='monetary'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group colspan="2" class="oe_subtotal_footer oe_right">
+                                    <field name="rooms_total" sum="Room amount" widget='monetary'/>
+                                    <field name="services_total" sum="Service amount" widget='monetary'/>
+                                    <div class="oe_subtotal_footer_separator oe_inline">
+                                        <label for="amount_total"/>
+                                    </div>
+                                    <field name="amount_total" nolabel="1" sum="Total amount"
+                                           widget='monetary'/>
+                                </group>
+                            <!-- </group> -->
+                            </page>
+                        </notebook>
+                	</sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_room_reservation_tree" model="ir.ui.view">
+            <field name="name">room.reservation.tree</field>
+            <field name="model">room.reservation</field>
+            <field name="arch" type="xml">
+                <tree string="Room_Reservation">
+                    <field name="booking_no"/>
+                    <field name="name"/>
+                    <field name='email'/>
+                    <field name='num_child'/>
+                    <field name='num_adults'/>
+                    <field name='num_of_days'/>
+                    <field name='check_in'/>
+                    <field name='check_out'/>
+                    <field name='total_person'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="room_reservation_calendar_view" model="ir.ui.view">
+            <field name="name">Room Reservation Calendar</field>
+            <field name="model">room.reservation</field>
+            <field name="arch" type="xml">
+                <calendar string="Reservation" date_start="check_in"
+                          date_stop="check_out">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="view_room_reservation_search" model="ir.ui.view">
+            <field name="name">room.reservation.search</field>
+            <field name="model">room.reservation</field>
+            <field name="arch" type="xml">
+                <search string="Tables Detail">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_room_reservation_graph">
+            <field name="name">room.reservation.graph</field>
+            <field name="model">room.reservation</field>
+            <field name="arch" type="xml">
+                <graph string="Room Reservation">
+                    <field name="name"/>
+                    <field name="amount_total" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="room_reservation_action" model="ir.actions.act_window">
+            <field name="name">Room Reservation</field>
+            <field name="res_model">room.reservation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+        </record>
+        
+	</data>
+</odoo>

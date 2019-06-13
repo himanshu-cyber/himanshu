@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_room_type_form" model="ir.ui.view">
+            <field name="name">room.type.form</field>
+            <field name="model">room.type</field>
+            <field name="arch" type="xml">
+                <form string="Room Type">
+                	<sheet>
+                		<group string="Room Type Information">
+                			<group>
+                				<field name="name"/>
+                			</group>
+                		</group>
+                	</sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_room_type_tree" model="ir.ui.view">
+            <field name="name">room.type.tree</field>
+            <field name="model">room.type</field>
+            <field name="arch" type="xml">
+                <tree string="Room Type">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="room_type_action" model="ir.actions.act_window">
+            <field name="name">Room Type</field>
+            <field name="res_model">room.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+	</data>
+</odoo>

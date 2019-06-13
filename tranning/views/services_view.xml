@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_services_form" model="ir.ui.view">
+            <field name="name">services.form</field>
+            <field name="model">services</field>
+            <field name="arch" type="xml">
+                <form string="Services">
+                	<sheet>
+                		<group string="Services Information">
+                			<group>
+                				<field name="name"/>
+                                <field name="categ_id"/>
+                                <field name="list_price"/>
+                			</group>
+                		</group>
+                	</sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_services_tree" model="ir.ui.view">
+            <field name="name">services.tree</field>
+            <field name="model">services</field>
+            <field name="arch" type="xml">
+                <tree string="Services">
+                    <field name="name"/>
+                    <field name="categ_id"/>
+                    <field name="list_price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="services_action" model="ir.actions.act_window">
+            <field name="name">Services</field>
+            <field name="res_model">services</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+	</data>
+</odoo>

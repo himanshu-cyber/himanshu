@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_room_reservation,access_room_reservation,model_room_reservation,base.group_user,1,1,1,1
+access_rooms,access_rooms,model_rooms,base.group_user,1,1,1,1
+access_room_name,access_room_name,model_room_name,base.group_user,1,1,1,1
+access_room_type,access_room_type,model_room_type,base.group_user,1,1,1,1
+access_services,access_services,model_services,base.group_user,1,1,1,1
+access_services_type,access_services_type,model_services_type,base.group_user,1,1,1,1

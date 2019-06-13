@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_room_name_form" model="ir.ui.view">
+            <field name="name">room.name.form</field>
+            <field name="model">room.name</field>
+            <field name="arch" type="xml">
+                <form string="Rooms">
+                	<sheet>
+                		<group string="Rooms Information">
+                			<group>
+                				<field name="name"/>
+                                <field name="status"/>
+                                <field name="categ_id"/>
+                                <field name="price"/>
+                                <field name="capacity"/>
+                			</group>
+                		</group>
+                	</sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_room_name_tree" model="ir.ui.view">
+            <field name="name">room.name.tree</field>
+            <field name="model">room.name</field>
+            <field name="arch" type="xml">
+                <tree string="Rooms">
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="categ_id"/>
+                    <field name="price"/>
+                    <field name="capacity"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hotel_room_kanban" model="ir.ui.view">
+            <field name="name">room.name.kanban</field>
+            <field name="model">room.name</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="status">
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="price"/>
+                    <field name="id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div>
+                                <div class="o_dropdown_kanban dropdown" groups="base.group_user">
+                                    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+                                        <span class="fa fa-bars fa-lg"/>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <t t-if="widget.editable">
+                                            <li>
+                                                <a type="edit">Edit</a>
+                                            </li>
+                                        </t>
+                                        <t t-if="widget.deletable">
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </div>
+                                <div class="oe_kanban_details" style='margin-top: -5px;'>
+                                    <div class="oe_kanban_content">
+                                        <div class="oe_kanban_project_list">
+                                            <H3>
+                                                <a type="open">
+                                                    <field name="name"/>
+                                                </a>
+                                            </H3>
+                                        </div>
+                                        <div name="tags"/>
+                                        <ul>
+                                            <li>
+                                                Status:
+                                                <field name="status"></field>
+                                            </li>
+                                            <li>
+                                                Rate:
+                                                <field name="price"></field>
+                                            </li>
+                                            <li>
+                                                Capacity:
+                                                <field name="capacity"></field>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <a t-if="record.status.raw_value === 'available'" type="object"
+                                           string="Available" name="set_room_status_occupied"
+                                           class="oe_kanban_status oe_kanban_status_green ">
+                                        </a>
+                                        <a t-if="record.status.raw_value === 'occupied'" type="object"
+                                           string="occupied" name="set_room_status_available"
+                                           class="oe_kanban_status oe_kanban_status_red ">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="room_name_action" model="ir.actions.act_window">
+            <field name="name">Room Name</field>
+            <field name="res_model">room.name</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+	</data>
+</odoo>

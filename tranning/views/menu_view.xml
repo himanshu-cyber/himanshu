@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <menuitem name="Hotel Management" 
+                  id="main_menu_hotel"/>
+
+        <menuitem name="Configuration" 
+                  id="menu_config" sequence="2" 
+                  parent="tranning.main_menu_hotel"/>
+
+        <menuitem name="Hotel Management" 
+                  id="menu_hotel" sequence="1" 
+                  parent="tranning.main_menu_hotel"/>
+
+        <menuitem name="Room Reservation" 
+                  id="menu_room_reservation" 
+                  parent="tranning.menu_hotel"
+                  action="tranning.room_reservation_action"/>
+
+        <menuitem id="menu_hotel_room" 
+                  name="Room" sequence="2" 
+                  parent="tranning.menu_config"/>
+
+        <menuitem name="Room" 
+                  id="menu_room_name" sequence="1" 
+                  parent="tranning.menu_hotel_room"
+                  action="tranning.room_name_action"/>
+
+        <menuitem name="Room Type" 
+                  id="menu_room_type" sequence="2" 
+                  parent="tranning.menu_hotel_room"
+                  action="tranning.room_type_action"/>
+
+        <menuitem name="Services Type" 
+                  id="menu_services_type" sequence="4" 
+                  parent="tranning.menu_hotel_room"
+                  action="tranning.services_type_action"/>
+
+        <menuitem name="Services" 
+                  id="menu_services" sequence="3" 
+                  parent="tranning.menu_hotel_room"
+                  action="tranning.services_action"/>
+
+    </data>
+</odoo>
