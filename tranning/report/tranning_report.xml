@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Report for room reservation-->
+        <report id="report_room_reservation"
+                string="Room Reservation"
+                model="room.reservation"
+                report_type="qweb-pdf"
+                name="tranning.report_hotel_info"
+                file="tranning.report_hotel_info"/>
+    </data>
+</odoo>

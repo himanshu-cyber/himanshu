@@ -14,6 +14,8 @@
         'product'
     ],
     'data': [
+        'report/tranning_report.xml',
+        'report/tranning_report_templates.xml',
         'views/menu_view.xml',
         'security/ir.model.access.csv',
         'views/room_reservation_view.xml',
@@ -27,4 +29,3 @@
     'auto_install': False,
     'application': True,
 }
-

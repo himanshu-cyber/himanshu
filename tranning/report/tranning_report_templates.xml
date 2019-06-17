@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Template for room reservation-->
+        <template id="hotel_info_template">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <span t-field="o.name"/>
+                        </div>
+                    </div>
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Country</th>
+                            <th>Phone</th>
+                            <th>Child</th>
+                            <th>Adults</th>
+                            <th>Total Person</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span t-field="o.name"/>
+                            </td>
+                            <td>
+                                <span t-field="o.email"/>
+                            </td>
+                            <td>
+                                <span t-field="o.city"/>
+                            </td>
+                            <td>
+                                <span t-field="o.country_id"/>
+                            </td>
+                            <td>
+                                <span t-field="o.contact"/>
+                            </td>
+                            <td>
+                                <span t-field="o.num_child"/>
+                            </td>
+                            <td>
+                                <span t-field="o.num_adults"/>
+                            </td>
+                            <td>
+                                <span t-field="o.total_person"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_hotel_info">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="tranning.hotel_info_template"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
