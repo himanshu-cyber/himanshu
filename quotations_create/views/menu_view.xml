@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <menuitem name="Quotations Information"
+                  id="quotations_create.main_menu_quotations"/>
+
+        <menuitem name="Information"
+                  id="menu_info" sequence="2"
+                  parent="quotations_create.main_menu_quotations"/>
+
+        <menuitem name="Quotations Information"
+                  id="menu_quota_info"
+                  parent="quotations_create.menu_info"
+                  action="quotations_create.view_quotation_info_action"/>
+    </data>
+</odoo>
