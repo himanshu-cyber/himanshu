@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_many_2_many_form" model="ir.ui.view">
+            <field name="name">many.2.many.field.form</field>
+            <field name="model">many.2.many.field</field>
+            <field name="arch" type="xml">
+                <form string="Many 2 many">
+                	<sheet>
+                		<group string="Many 2 many ">
+                			<group>
+                				<field name="name"/>
+                                <field name="web_id" widget="many2many_tags" options="{'no_create':True}"/>
+                			</group>
+                		</group>
+                	</sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_many_2_many_tree" model="ir.ui.view">
+            <field name="name">many.2.many.field.tree</field>
+            <field name="model">many.2.many.field</field>
+            <field name="arch" type="xml">
+                <tree string="Many 2 many">
+                    <field name="name"/>
+                    <field name="web_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="many_2_many_action" model="ir.actions.act_window">
+            <field name="name">Many 2 many</field>
+            <field name="res_model">many.2.many.field</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Many2many Fields"
+                  id="menu_many_2_many" sequence="3"
+                  parent="relection_field.main_menu_relection"
+                  action="relection_field.many_2_many_action"/>
+	</data>
+</odoo>

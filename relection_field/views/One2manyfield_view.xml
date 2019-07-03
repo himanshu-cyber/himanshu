@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+<!--        <menuitem name="Relection Fields"-->
+<!--                  id="main_menu_relection"/>-->
+
+		<record id="view_one_2_many_form" model="ir.ui.view">
+            <field name="name">one.2.many.field.form</field>
+            <field name="model">one.2.many.field</field>
+            <field name="arch" type="xml">
+                <form string="One 2 many">
+                	<sheet>
+                		<group string="One 2 many ">
+                			<group>
+                				<field name="name"/>
+                			</group>
+                		</group>
+                	</sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_one_2_many_tree" model="ir.ui.view">
+            <field name="name">one.2.many.field.tree</field>
+            <field name="model">one.2.many.field</field>
+            <field name="arch" type="xml">
+                <tree string="One 2 many">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="one_2_many_action" model="ir.actions.act_window">
+            <field name="name">One 2 many</field>
+            <field name="res_model">one.2.many.field</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="One2many Fields"
+                  id="menu_one_2_many" sequence="3"
+                  parent="relection_field.main_menu_relection"
+                  action="relection_field.one_2_many_action"/>
+	</data>
+</odoo>
